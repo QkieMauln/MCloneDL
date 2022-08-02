@@ -1,39 +1,97 @@
 <template>
   <header>
-    <h1>Sensanaty's Vue 3, TypeScript and Vite template</h1>
+    <div>
+      <caption>
+        <h1>{{titleName}}</h1>
+        <span>MCPEDL but simple (Learning Purpose)</span>
+      </caption>
+      <form>
+        <input type="text" />
+        <button type="submit">Search</button>
+      </form>
+    </div>
     <nav>
-      <RouterLink to="/example">Example</RouterLink>
-      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/texturepacks">Texture Packs</RouterLink>
+      <RouterLink to="/addons">Addons</RouterLink>
+      <RouterLink to="/skinpacks">Skin Packs</RouterLink>
     </nav>
   </header>
 </template>
 
-<style lang="scss">
-  header {
-    display: grid;
-    grid-template: 1fr / 3fr 1fr;
-    align-items: center;
-    background: $main;
-    color: $secondary;
-    padding: 20px 10px;
+<script lang="ts" setup>
+  /** */
+  import { ref } from "vue";
 
-    h1 {
-      font-size: 1.5rem;
+  const arrayTitles =
+    "MCPEDL-Clone,MineScript,Bedrock Script,MineBed,AddBed,AddRock,AddCraft,AddRock,AddCraft,Craftons,Scrons,Scraft,BedCraft,BedScript,ScriptMine,MineDons".split(
+      ","
+    );
+  var titleName = ref("MineBedr");
+  setInterval(() => {
+    const random = ~~(Math.random() * arrayTitles.length);
+    titleName.value = arrayTitles[random];
+  }, 100);/**/
+</script>
+
+<style lang="scss" scoped>
+  header {
+    top: 0;
+    z-index: 9999;
+    position: sticky;
+    display: grid;
+    grid-template: 4fr 6fr;
+    align-items: center;
+    background: $blue-dark;
+    color: white;
+    padding: 10px 10px;
+    border-bottom: 2px solid $blue;
+    div {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      caption {
+        text-align: left;
+        h1 {
+          font-size: 1.5rem;
+          text-decoration: underline;
+        }
+      }
+      form {
+        margin-left: auto;
+        * {
+          padding: 7px 10px;
+          border: none;
+          outline: none;
+        }
+        input {
+          background: $orange-light;
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+          color: white;
+        }
+        button {
+          background: $orange;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+          color: white;
+          font-weight: bold;
+        }
+      }
     }
   }
 
   nav {
     display: flex;
-    margin: 0 0 0 auto;
-
+    margin: 10px auto 0 auto;
+    text-align: center;
     a {
-      background: $secondary;
-      color: $main;
+      color: white;
       text-decoration: none;
-      padding: 10px;
-      margin: 0 10px;
-      border-radius: 5px;
       font-weight: bold;
+      background: $orange;
+      font-size: 1.15em;
+      margin: 2px 10px;
+      padding: 5px 10px;
+      border-radius: 5px;
     }
   }
 </style>

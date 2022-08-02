@@ -1,8 +1,16 @@
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin: 0;
   padding: 0;
 }
 
+body {
+  background: linear-gradient(220deg, $orange-dark, $blue-dark);
+  background-size: cover;
+  background-attachment: fixed;
+}
 // This selector is used in the root div of all pages in the app
 .page {
   display: flex;

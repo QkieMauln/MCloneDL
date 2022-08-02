@@ -12,6 +12,7 @@ module.exports = {
   },
   plugins: ["vue", "@typescript-eslint"],
   rules: {
+    "linebreak-style": "unix",
     "no-shadow": "off",
     "prefer-destructuring": "off",
     "import/no-unresolved": "off",

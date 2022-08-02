@@ -11,7 +11,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     component: Example,
-    path: "/example",
+    path: "/",
     name: "example",
     meta: { title: "Examples" }
   }
@@ -23,7 +23,7 @@ const router: Router = createRouter({
 });
 
 router.afterEach((to) => {
-  const baseTitle = "Vue + TypeScript + Vite";
+  const baseTitle = "Another minecraft services clone";
 
   if (to.name === "index") {
     document.title = baseTitle;
